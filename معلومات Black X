@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black X - مركز البوتات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styling */
+        :root {
+            --dark-bg: #1a1a1a;
+            --text-color: #e0e0e0;
+            --highlight-color: #6a0dad; /* Dark Purple */
+            --accent-color: #8c0ee6; /* Lighter Purple */
+            --card-bg: #2a2a2a;
+            --border-color: #444;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header / Hero Section */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1500x500/1a1a1a/e0e0e0?text=Abstract+Dark+Background') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid var(--highlight-color);
+        }
+
+        header h1 {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            text-shadow: 0 0 15px var(--accent-color);
+        }
+
+        header p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            opacity: 0.9;
+        }
+
+        .info-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .info-item {
+            background-color: rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px 25px;
+            text-align: center;
+            font-size: 1.1em;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-item i {
+            color: var(--highlight-color);
+            margin-left: 10px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--accent-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--highlight-color);
+            border-radius: 5px;
+        }
+
+        /* Bots Section */
+        .bots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .bot-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .bot-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+        }
+
+        .bot-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: var(--highlight-color);
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+        }
+
+        .bot-card p {
+            font-size: 1.1em;
+            color: var(--text-color);
+            margin-bottom: 25px;
+            opacity: 0.8;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.05em;
+        }
+
+        .btn:hover {
+            background-color: var(--highlight-color);
+            transform: translateY(-2px);
+        }
+
+        /* Services Section */
+        .services-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            text-align: right;
+        }
+
+        .services-list li {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .services-list li:hover {
+             transform: translateX(-5px);
+        }
+
+        .services-list li i {
+            color: var(--highlight-color);
+            font-size: 1.5em;
+            margin-left: 15px;
+        }
+
+        .services-list li span {
+            font-size: 1.1em;
+        }
+
+        /* Ethos Section */
+        .ethos-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            margin: 40px auto;
+            max-width: 700px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        .ethos-section p {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .ethos-section p strong {
+            color: var(--highlight-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9em;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            .bot-card, .services-list li {
+                padding: 20px;
+            }
+
+            .info-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .info-item {
+                width: 80%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 70px 15px;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.95em;
+            }
+            .services-list li {
+                flex-direction: column;
+                text-align: center;
+            }
+            .services-list li i {
+                margin: 0 0 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="fade-in">⛧ Black X</h1>
+            <p>مرحباً بك في عالم Black X، حيث يلتقي التشفير بالخصوصية والدعم التقني.</p>
+            <div class="info-grid">
+                <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span>مصر – المدينة؟ غير معلنة</span></div>
+                <div class="info-item"><i class="fas fa-history"></i> <span>العمر: نسخة متجددة باستمرار</span></div>
+                <div class="info-item"><i class="fas fa-code"></i> <span>مبرمج مستقل | مساعد تقني | هاكر أخلاقي</span></div>
+            </div>
+            <p style="margin-top: 30px; font-size: 1.1em;">⚙️ بشتغل من ورا الكواليس… لكن دايمًا بنيّة واضحة:</p>
+            <p style="font-size: 1.2em; color: var(--highlight-color); font-weight: bold;">مساعدتك، مش تخريبك.</p>
+        </div>
+    </header>
+
+    <section id="bots">
+        <div class="container">
+            <h2>بوتاتي على تليجرام</h2>
+            <div class="bots-grid">
+                <div class="bot-card">
+                    <h3><i class="fas fa-shield-alt"></i> Local Black Bot</h3>
+                    <p>بوت الحماية القوي جداً لمجموعاتك، بميزات فريدة للمساعدة وتأمين أعضائها تلقائياً.</p>
+                    <a href="https://t.me/Local_blackbot" target="_blank" class="btn">إضافة البوت لمجموعتك</a>
+                </div>
+                <div class="bot-card">
+                    <h3><i class="fas fa-ghost"></i> Messages From The Void Bot</h3>
+                    <p>غرفة تواصل مظلمة لا تكشف هوية أحد، حيث يمكنك التحدث بحرية وبخصوصية تامة، كغرفة الأشباح.</p>
+                    <a href="https://t.me/MessagesFromTheVoidBot" target="_blank" class="btn">ابدأ المحادثة الآن</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>💬 أقدر أساعدك في:</h2>
+            <ul class="services-list">
+                <li><i class="fas fa-file-code"></i> <span>كتابة سكربتات مفيدة وآمنة 👨‍💻</span></li>
+                <li><i class="fas fa-robot"></i> <span>تطوير أدوات وبوتات بطريقة منظمة 🤖</span></li>
+                <li><i class="fas fa-book-open"></i> <span>تبسيط المفاهيم للناس اللي بتحاول تتعلّم 📘</span></li>
+                <li><i class="fas fa-bullseye"></i> <span>دعم أي فكرة بتحاول تبدأ بيها مشروع حلال أو تطوّر شغلك 🎯</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="ethos">
+        <div class="container">
+            <div class="ethos-section">
+                <p>🧠 <strong style="color: #ff4d4d;">مش هاكر تخريبي…</strong></p>
+                <p>أنا مع البناء، مش الهدم</p>
+                <p>أنا هنا عشان أساعدك، مش أوقّعك</p>
+                <p>🔐 معلوماتي سطحية… لكن نيّتي واضحة.</p>
+                <p>🔥 لو عندك هدف نظيف… فأنا معاك.</p>
+                <p style="color: #ffcc00; font-weight: bold;">أما الفضول؟ خليه برا البوابة.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Black X. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
